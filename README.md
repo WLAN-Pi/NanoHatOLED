@@ -1,6 +1,6 @@
 # Updated NanoHat OLED software
 
-Updated by Joris Pragt using several sources. 
+Updated by Joris Pragt using several sources.  Not working yet: issues installing with ansible.
 
 ## **NanoHat OLED**
 
