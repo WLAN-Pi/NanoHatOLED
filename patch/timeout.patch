@@ -1,0 +1,102 @@
+--- bakebit_nanohat_oled.py	2018-12-20 14:25:03.604667813 -0800
++++ bakebit_nanohat_oled.py.orig	2018-12-20 12:33:59.592899367 -0800
+@@ -54,20 +54,15 @@
+ global pageCount
+ pageCount=2
+ global pageIndex
+-pageIndex=1
++pageIndex=0
+ global showPageIndicator
+ showPageIndicator=False
+ 
+-global pageSleep
+-pageSleep=300
+-global pageSleepCountdown
+-pageSleepCountdown=pageSleep
+-
+ oled.init()  #initialze SEEED OLED display
+ oled.setNormalDisplay()      #Set display to normal mode (i.e non-inverse mode)
+ oled.setHorizontalMode()
+ 
+-global drawing
++global drawing 
+ drawing = False
+ 
+ global image
+@@ -76,7 +71,7 @@
+ draw = ImageDraw.Draw(image)
+ global fontb24
+ fontb24 = ImageFont.truetype('DejaVuSansMono-Bold.ttf', 24);
+-global font14
++global font14 
+ font14 = ImageFont.truetype('DejaVuSansMono.ttf', 14);
+ global smartFont
+ smartFont = ImageFont.truetype('DejaVuSansMono-Bold.ttf', 10);
+@@ -116,7 +111,6 @@
+     global width
+     global height
+     global lock
+-    global pageSleepCountdown
+ 
+     lock.acquire()
+     is_drawing = drawing
+@@ -126,18 +120,11 @@
+     if is_drawing:
+         return
+ 
+-    #if the countdown is zero we should be sleeping (blank the display to reduce screenburn)
+-    if pageSleepCountdown == 0:
+-        oled.clearDisplay()
+-        return
+-
+-    pageSleepCountdown = pageSleepCountdown - 1
+-
+     lock.acquire()
+     drawing = True
+     lock.release()
+-
+-    # Draw a black filled box to clear the image.
++    
++    # Draw a black filled box to clear the image.            
+     draw.rectangle((0,0,width,height), outline=0, fill=0)
+     # Draw current page indicator
+     if showPageIndicator:
+@@ -231,10 +218,6 @@
+ 
+ def receive_signal(signum, stack):
+     global pageIndex
+-    global pageSleepCountdown
+-    global pageSleep
+-
+-    pageSleepCountdown = pageSleep #user pressed a button, reset the sleep counter
+ 
+     lock.acquire()
+     page_index = pageIndex
+@@ -261,7 +244,7 @@
+             if page_index==4:
+                 update_page_index(5)
+                 draw_page()
+-
++ 
+             else:
+                 update_page_index(0)
+                 draw_page()
+@@ -280,7 +263,6 @@
+ 
+ 
+ image0 = Image.open('friendllyelec.png').convert('1')
+-#image0 = Image.open('newlogo.png').convert('1')
+ oled.drawImage(image0)
+ time.sleep(2)
+ 
+@@ -315,7 +297,7 @@
+             os.system('systemctl poweroff')
+             break
+         time.sleep(1)
+-    except KeyboardInterrupt:
+-        break
+-    except IOError:
++    except KeyboardInterrupt:                                                                                                          
++        break                     
++    except IOError:                                                                              
+         print ("Error")
