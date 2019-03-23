@@ -1,3 +1,7 @@
+# Updated NanoHat OLED software
+
+Updated by Joris Pragt using several sources. 
+
 ## **NanoHat OLED**
 
 Example code of correct use and start for the NanoHat OLED.  
