@@ -2,6 +2,8 @@
 
 Updated by Joris Pragt using several sources.  Not working yet: issues installing with ansible.
 
+Main source: [The dietpi forum](https://dietpi.com/phpbb/viewtopic.php?t=3077).
+
 ## **NanoHat OLED**
 
 Example code of correct use and start for the NanoHat OLED.  
