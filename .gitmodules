@@ -1,3 +1,3 @@
 [submodule "BakeBit"]
 	path = BakeBit
-	url = git@github.com:pragtich/BakeBit.git
+	url = https://github.com/pragtich/BakeBit.git
