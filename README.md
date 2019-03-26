@@ -3,6 +3,7 @@
 Updated by Joris Pragt using several sources.  Not working yet: issues installing with ansible.
 
 Main source: [The dietpi forum](https://dietpi.com/phpbb/viewtopic.php?t=3077).
+Some additions: [The armbian forum](https://forum.armbian.com/topic/9111-info-nanopi-neoneo2-oled-hat-does-work-with-armbian/)
 
 ## **NanoHat OLED**
 
